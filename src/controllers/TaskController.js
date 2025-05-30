@@ -109,5 +109,31 @@ module.exports = {
     saveDB(db)
 
     return res.json(db[taskIndex])
+  },
+
+
+  // 5. Deleta uma tarefa específica com base em seu id
+  delete(req, res) {
+    // Extraindo o id da tarefa da rota
+    const { id } = req.params
+
+    const db = loadDB()
+
+    // Verifica se a tarefa com o ID existe
+    const taskIndex = db.findIndex(task => task.id === id)
+
+    // Verificação simples que retornará um erro 404 caso a tarefa não exista
+    if (taskIndex === -1) {
+      return res.status(404).json({ message: 'Tarefa não encontrada.'})
+    }
+
+    // Caso a tarefa exista, remova-a do array
+    db.splice(taskIndex, 1)
+
+
+    // Salva o novo estado no arquivo
+    saveDB(db)
+
+    return res.status(200).json({ message: 'Tarefa excluída com sucesso.'})
   }
 }

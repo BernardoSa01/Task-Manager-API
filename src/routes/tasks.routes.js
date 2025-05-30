@@ -15,5 +15,8 @@ router.get('/tasks/:id', TaskController.show);
 // PUT/tasks: atualiza os dados principais de uma tarefa já existente
 router.put('/tasks/:id', TaskController.update)
 
+// DELETE/tasks: deleta uma tarefa específica com base em seu id
+router.delete('/tasks/:id', TaskController.delete)
+
 
 module.exports = router
