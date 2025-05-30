@@ -135,5 +135,34 @@ module.exports = {
     saveDB(db)
 
     return res.status(200).json({ message: 'Tarefa excluída com sucesso.'})
+  },
+
+
+  // 6. Permite que o usuário atualize o status de uma tarefa específica
+  updateStatus(req, res) {
+    const { id } = req.params
+    const { status } = req.body
+
+    // Validação básica para permitir somente os status predefinidos 
+    const allowedStatuses = ['pendente', 'em andamento', 'concluída']
+
+    if (!allowedStatuses.includes(status)) {
+      return res.status(400).json({ message: 'Status inválido. Os status permitidos são: pendente, em andamento, concluída.'})
+    }
+
+    const db = loadDB()
+
+    // Validação simples caso a tarefa não seja encontrada
+    const task = db.find(task => task.id === id)
+
+    if (!task) {
+      return res.status(404).json({ message: 'Tarefa não encontrada'})
+    }
+
+    task.status = status
+
+    saveDB(db)
+
+    return res.json({ message: 'Status atualizado com sucesso', task})
   }
 }

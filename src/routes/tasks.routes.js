@@ -18,5 +18,8 @@ router.put('/tasks/:id', TaskController.update)
 // DELETE/tasks: deleta uma tarefa específica com base em seu id
 router.delete('/tasks/:id', TaskController.delete)
 
+// PATCH/tasks: permite que o usuário atualize somente o status de uma tarefa específica
+router.patch('/tasks/:id/status', TaskController.updateStatus)
+
 
 module.exports = router
