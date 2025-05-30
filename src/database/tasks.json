@@ -1,0 +1,17 @@
+[
+  {
+    "id": "694b99fc-51ef-4f37-a221-c6c028559591",
+    "title": "Estudar Node.js",
+    "description": "Focar nos projetos práticos",
+    "status": "pendente",
+    "created_at": "2025-05-29T21:39:23.863Z"
+  },
+  {
+    "id": "4743bd94-7b60-44ca-bf9e-7dba038dd675",
+    "title": "Novo título atualizado em JavaScript",
+    "description": "Nova descrição de programação orientada à objetos atualizada",
+    "status": "pendente",
+    "created_at": "2025-05-29T22:29:08.891Z",
+    "updated_at": "2025-05-29T23:40:58.421Z"
+  }
+]
