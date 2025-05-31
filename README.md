@@ -105,6 +105,22 @@ Esse projeto foi desenvolvido com o objetivo de praticar:
 
 ---
 
+
+
+
+## ⏳ Futuras melhorias
+
+- Integração com banco de dados relacional (PostgreSQL)
+- Implementação de autenticação de usuários
+- Paginação e filtros nas listagens de tarefas
+- Validações com bibliotecas externas (Joi ou Yup)
+- Documentação da API com Swagger
+- Deploy da aplicação com Render
+- Testes automatizados (Jest)
+
+---
+
+
 ## ✍️ Autor
 
 Feito com dedicação por [Bernardo Sá](https://www.linkedin.com/in/bernardosa01). Conecte-se comigo!
