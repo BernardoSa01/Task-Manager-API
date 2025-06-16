@@ -27,8 +27,19 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - ✅ Atualizar título e descrição de uma tarefa (`PUT /tasks/:id`)
 - ✅ Atualizar apenas o status da tarefa (`PATCH /tasks/:id/status`)
 - ✅ Remover uma tarefa (`DELETE /tasks/:id`)
+- ✅ Documentação da API com Swagger (`GET /docs`)
 
 ---
+
+## 📄 Documentação da API
+
+A documentação da API está disponível através do Swagger.  
+Após rodar o projeto localmente, acesse:
+
+👉 [http://localhost:3000/docs](http://localhost:3000/docs)
+
+Por meio dessa interface, você pode visualizar todas as rotas disponíveis, seus métodos, parâmetros, request body, respostas e exemplos.
+
 
 ## ⚙️ Instalação e uso
 
@@ -114,7 +125,6 @@ Esse projeto foi desenvolvido com o objetivo de praticar:
 - Implementação de autenticação de usuários
 - Paginação e filtros nas listagens de tarefas
 - Validações com bibliotecas externas (Joi ou Yup)
-- Documentação da API com Swagger
 - Deploy da aplicação com Render
 - Testes automatizados (Jest)
 
