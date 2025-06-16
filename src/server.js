@@ -6,7 +6,7 @@ const swaggerSpec = require('./swagger')
 const app = express()
 
 // Definindo a porta do servidor
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 // Rota da documentação com Swagger
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
