@@ -15,7 +15,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - UUID (gerador de identificadores únicos universais para cada tarefa)
 - Nodemon
 - File System (fs)
-- Insomnia (para testes)
+- Insomnia (testes manuais)
+- Render (hospedagem e deploy online)
 
 ---
 
@@ -34,14 +35,16 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 📄 Documentação da API
 
 A documentação da API está disponível através do Swagger.  
-Após rodar o projeto localmente, acesse:
 
-👉 [http://localhost:3000/docs](http://localhost:3000/docs)
+- [Localmente](http://localhost:3000/docs)
+- [Online via Render](https://task-manager-api-izui.onrender.com/docs/)
 
 Por meio dessa interface, você pode visualizar todas as rotas disponíveis, seus métodos, parâmetros, request body, respostas e exemplos.
 
 
 ## ⚙️ Instalação e uso
+
+### 🔧 Rodar localmente:
 
 ```bash
 # Clone o repositório
@@ -58,6 +61,9 @@ npm run dev
 ```
 
 ---
+
+## 🌐 Teste online (sem instalação)
+- [Teste as rotas da aplicação online com o Render](https://task-manager-api-izui.onrender.com)
 
 ## 🧪 Testes com o Insomnia
 
@@ -113,6 +119,8 @@ Esse projeto foi desenvolvido com o objetivo de praticar:
 - Persistência de dados com arquivo JSON
 - Tratamento de erros e status HTTP
 - Testes com Insomnia
+- Documentação com Swagger
+- Deploy com Render
 
 ---
 
@@ -125,7 +133,6 @@ Esse projeto foi desenvolvido com o objetivo de praticar:
 - Implementação de autenticação de usuários
 - Paginação e filtros nas listagens de tarefas
 - Validações com bibliotecas externas (Joi ou Yup)
-- Deploy da aplicação com Render
 - Testes automatizados (Jest)
 
 ---
