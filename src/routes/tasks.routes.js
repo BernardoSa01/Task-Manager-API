@@ -8,20 +8,45 @@ const router = express.Router()
  * /tasks
  *    post:
  *      summary: Cria uma nova tarefa
+ *      tags: [Tasks]
  *      requestBody:
  *        required: true
  *        content: 
  *          application/json:
  *            schema:
  *              type: object
+ *              required: 
+ *                - title
+ *                - description
  *              properties:
  *                title: 
  *                  type: string
+ *                  example: "Estudar Node.js"
  *                description:
  *                  type: string
+ *                  example: "Praticar CRUD completo com JSON"
  *    responses:
  *      201:
  *        description: Tarefa criada com sucesso
+ *        content: 
+ *         application/json:
+ *           schema: 
+ *             type: object
+ *             properties:
+ *                id: 
+ *                  type: string
+ *                  example: "a1b2c3d4-e5f6-7890-1234-56789abcdef0"
+ *                title:
+ *                  type: string
+ *                  example: "Estudar Node.js"
+ *                description:
+ *                  type: string
+ *                  example: "Praticar CRUD completo com JSON"
+ *                status:
+ *                  type: string
+ *                  example: "pendente"
+ *        400:
+ *          description: Título e descrição são obrigatórios
  */
 router.post('/tasks', TaskController.create)
 
@@ -31,9 +56,35 @@ router.post('/tasks', TaskController.create)
  * /tasks:
  *    get:
  *      summary: Lista todas as tarefas
+ *      tags: [Tasks]
  *      responses:
  *        200:
- *          description: Lista de tarefas retornada com sucesso
+ *          description: Retorna um array com todas as tarefas cadastradas. Se não houver tarefas, retorna um array vazio.
+ *          content: 
+ *            application/json:
+ *              schema:
+ *                type: array
+ *                items: 
+ *                  type: object
+ *                  properties:
+ *                    id: 
+ *                      type: string
+ *                      example: "d290f1ee-6c54-4b01-90e6-d701748f0851"
+ *                    title:
+ *                      type: string
+ *                      example: "Estudar Node.js"
+ *                    description:
+ *                      type: string
+ *                      example: "Praticar CRUD com persistência em JSON"
+ *                    status: 
+ *                      type: string
+ *                      example: "pendente"
+ *                    created_at: 
+ *                      type: string
+ *                      example: "2024-06-16T12:00:00.000Z"
+ *                    updated_at: 
+ *                      type: string
+ *                      example: "2024-06-18T14:30:00.000Z"
  */
 router.get('/tasks', TaskController.index)
 
