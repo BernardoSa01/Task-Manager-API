@@ -147,6 +147,7 @@ router.get('/tasks/:id', TaskController.show);
  * /tasks/{id}:
  *   put: 
  *     summary: Atualiza uma tarefa por ID
+ *     tags: [Tasks]
  *     parameters: 
  *       - in: path
  *         name: id
@@ -160,14 +161,46 @@ router.get('/tasks/:id', TaskController.show);
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - title
+ *               - description
  *             properties: 
  *               title: 
  *                 type: string
+ *                 example: "Estudar Node.js"
  *               description: 
  *                 type: string
+ *                 example: "Aprofundar nos conceitos de CRUD e middlewares"
  *     responses:
  *       200:
  *         description: Tarefa atualizada com sucesso
+ *         content: 
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties: 
+ *                 id:
+ *                   type: string
+ *                   example: "a1b2c3d4-e5f6-7890-1234-56789abcdef0"
+ *                 title: 
+ *                   type: string
+ *                   example: "Estudar Node.js"
+ *                 description:
+ *                   type: string
+ *                   example: "Aprofundar nos conceitos de CRUD e middlewares"
+ *                 status:
+ *                   type: string
+ *                   example: "pendente"
+ *                 created_at: 
+ *                   type: string
+ *                   example: "2025-06-16T12:00:00.000Z"
+ *                 updated_at: 
+ *                   type: string
+ *                   example: "2025-06-18T14:30:00.000Z"
+ *       400:
+ *         description: Título e descrição são obrigatórios
+ *       404:
+ *         description: Tarefa não encontrada
  */
 router.put('/tasks/:id', TaskController.update)
 
