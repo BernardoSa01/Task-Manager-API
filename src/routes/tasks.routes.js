@@ -209,6 +209,7 @@ router.put('/tasks/:id', TaskController.update)
  * /tasks/{id}:
  *   delete:
  *     summary: Deleta uma tarefa por ID
+ *     tags: [Tasks]
  *     parameters: 
  *       - in: path
  *         name: id
@@ -217,8 +218,26 @@ router.put('/tasks/:id', TaskController.update)
  *           type: string
  *         description: ID da tarefa
  *     responses: 
- *       204: 
+ *       200: 
  *         description: Tarefa deletada com sucesso
+ *         content: 
+ *           application/json:
+ *             schema: 
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Tarefa excluída com sucesso."
+ *        404: 
+ *          description: Tarefa não encontrada
+ *          content: 
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  message:
+ *                    type: string
+ *                    example: "Tarefa não encontrada."
  */
 router.delete('/tasks/:id', TaskController.delete)
 
