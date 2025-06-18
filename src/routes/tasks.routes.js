@@ -246,6 +246,7 @@ router.delete('/tasks/:id', TaskController.delete)
  * /tasks/{id}/status:
  *   patch: 
  *     summary: Atualiza apenas o status de uma tarefa
+ *     tags: [Tasks]
  *     parameters: 
  *       - in: path
  *         name: id
@@ -259,13 +260,65 @@ router.delete('/tasks/:id', TaskController.delete)
  *         application/json:
  *           schema: 
  *             type: object
+ *             required: 
+ *               - status
  *             properties:
  *               status:
  *                 type: string
- *                 example: done
+ *                 example: "concluída"
+ *                 description: Status da tarefa (pendente, em andamento, concluída)
  *     responses: 
  *       200:
  *         description: Status atualizado com sucesso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message: 
+ *                   type: string
+ *                   example: "Status atualizado com sucesso"
+ *                 task: 
+ *                   type: object
+ *                   properties:
+ *                     id: 
+ *                       type: string
+ *                       example: "a1b2c3d4-e5f6-7890-1234-56789abcdef0"
+ *                     title:
+ *                       type: string
+ *                       example: "Estudar Node.js"
+ *                     description: 
+ *                       type: string
+ *                       example: "Praticar CRUD completo"
+ *                     status: 
+ *                       type: string
+ *                       example: "concluída"
+ *                     created_at: 
+ *                       type: string
+ *                       example: "2025-06-16T12:00:00.000Z"
+ *                     updated_at:
+ *                       type: string
+ *                       example: "2025-06-18T14:30:00.000Z"
+ *       400:
+ *         description: Status inválido. Os status permitidos são: pendente, em andamento, concluída
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Status inválido. Os status permitidos são: pendente, em andamento, concluída"
+ *       404: 
+ *         description: Tarefa não encontrada
+ *         content: 
+ *           application/json:
+ *             schema: 
+ *               type: object
+ *               properties: 
+ *                 message:
+ *                   type: string
+ *                   example: "Tarefa não encontrada"
  */
 router.patch('/tasks/:id/status', TaskController.updateStatus)
 
